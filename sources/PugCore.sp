@@ -4,6 +4,8 @@
 #include <PugForwards>
 #include <PugStocks>
 
+#pragma semicolon 1
+
 public Plugin:myinfo = 
 {
 	name 			= "Pug Mod (Core)",
@@ -19,18 +21,33 @@ new Handle:g_hCoreWarmup;
 new Handle:g_hCoreStart;
 new Handle:g_hCoreMatch;
 
+/*
+* Creating natives :D
+*/
+new Handle:g_hPlayersMin = INVALID_HANDLE;
+new Handle:g_hPlayersMax = INVALID_HANDLE;
+
+new Handle:g_hPlayersMinDefault = INVALID_HANDLE;
+new Handle:g_hPlayersMaxDefault = INVALID_HANDLE;
+
 public OnPluginStart()
 {
-	g_hCoreWarmup 		= CreateGlobalForward("OnPugWarmup",ET_Event);
-	g_hCoreStart 		= CreateGlobalForward("OnPugStart",ET_Event);
-	g_hCoreMatch 		= CreateGlobalForward("OnPugMatch",ET_Event);
+	g_hPlayersMin = CreateConVar("pug_players_min","10","Mininum of players to start the match.");
+	g_hPlayersMax = CreateConVar("pug_players_max","10","Maximum of players in server.");.
+	
+	g_hPlayersMinDefault = CreateConVar("pug_players_min_default","10","Default maximum of players in server.");
+	g_hPlayersMaxDefault = CreateConVar("pug_players_max_default","10","Default maximum of players in server.");
+	
+	g_hCoreWarmup 	= CreateGlobalForward("OnPugWarmup",ET_Event);
+	g_hCoreStart 	= CreateGlobalForward("OnPugStart",ET_Event);
+	g_hCoreMatch 	= CreateGlobalForward("OnPugMatch",ET_Event);
 }
 
 public OnConfigsExecuted()
 {
 	if(g_iStage == PUG_STAGE_DEAD)
 	{
-		// Auto Start for Pug, after this we can add a .set command
+		// Auto Start for Pug, after this we can add a .setup command
 		CreateTimer(8.0,CoreWarmup);
 	}
 }

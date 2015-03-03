@@ -3,14 +3,12 @@
 #endif
 #define _PugConst_included
 
-#include <sourcemod>
-
 #define PUG_MOD_AUTHOR 			"SmileY"
 #define PUG_MOD_VERSION 		"0.0.1"
 #define PUG_MOD_DESC 			"Pick Up Game for CS:GO and SourceMod"
 #define PUG_MOD_WEBURL 			"PUG.MaxiGames.com.br"
 
-stock const String:g_sHead[] = " \x01\x0B\x04[PUG]\x01";
+stock const String:g_sHead[] = " \x01\x0B\x04[PugMod]\x01";
 
 enum PugStage
 {

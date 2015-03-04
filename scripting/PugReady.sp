@@ -1,4 +1,5 @@
 #include <sourcemod>
+#include <cstrike>
 
 #include <PugConst>
 #include <PugForwards>
@@ -21,6 +22,8 @@ new bool:g_bReady[MAXPLAYERS] = false;
 
 new Handle:g_hPlayersMin;
 
+new String:g_sTags[33][32];
+
 public OnPluginStart()
 {
 	LoadTranslations("PugReady.phrases");
@@ -34,7 +37,7 @@ public OnConfigsExecuted()
 	g_hPlayersMin = FindConVar("pug_players_min");
 }
 
-public OnClientPostAdminCheck(iClient)
+public OnClientPutInServer(iClient)
 {
 	CreateTimer(5.0,PugWelcomeMessage,iClient);
 }
@@ -48,6 +51,10 @@ public Action:PugWelcomeMessage(Handle:hTimer,any:iClient)
 		if(IsClientInGame(iClient) && PugIsTeam(iClient))
 		{
 			PugPanelReadyList(iClient);
+			
+			CS_GetClientClanTag(iClient,g_sTags[iClient],sizeof(g_sTags[]));
+			CS_SetClientClanTag(iClient,"Not Ready");
+			
 			PrintToChatAll(PUG_MOD_PREFIX,"Say .ready to continue.");
 		}
 		else
@@ -80,6 +87,8 @@ public Action:PugOnReadyUp(iClient,iArgs)
 					"is now ready!",
 					sName
 				);
+				
+				CS_SetClientClanTag(iClient,"Ready");
 				
 				PugPanelReadyList(iClient);
 				PugCheckPlayers();
@@ -117,6 +126,8 @@ public Action:PugOnReadyDown(iClient,iArgs)
 					"is no longer ready!",
 					sName
 				);
+				
+				CS_SetClientClanTag(iClient,"Not Ready");
 				
 				PugPanelReadyList(iClient);
 				PugCheckPlayers();
@@ -196,7 +207,16 @@ public PugCheckPlayers()
 		{
 			case PUG_STAGE_WARMUP:
 			{
+				for(new i = 1;i <= MaxClients;i++)
+				{
+					if(IsClientInGame(i) && PugIsTeam(i))
+					{
+						CS_SetClientClanTag(i,g_sTags[i]);
+					}
+				}
+				
 				CreateTimer(2.0,PugContinue);
+				PrintToChatAll(PUG_MOD_PREFIX,"All Players are ready! Starting Pug Mod.");
 			}
 		}
 	}
@@ -210,7 +230,7 @@ public Action:PugContinue(Handle:hTimer)
 	PugStart();
 }
 
-stock PugGetReadyNum()
+PugGetReadyNum()
 {
 	new iNum;
 	

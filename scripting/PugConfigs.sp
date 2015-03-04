@@ -68,13 +68,13 @@ public OnPugMatch()
 {
 	PugExecConfig(g_hMatch,5);
 	
-	ServerCommand("mp_warmup_end");
 	SetConVarInt(g_hMpWarmupPause,0);
+	ServerCommand("mp_warmup_end");
 }
 
 PugExecConfig(Handle:hConvar,iRestart = 0)
 {
-	new String:sFile[32];
+	new String:sFile[64];
 	GetConVarString(hConvar,sFile,sizeof(sFile));
 	
 	if(sFile[0])
@@ -82,7 +82,7 @@ PugExecConfig(Handle:hConvar,iRestart = 0)
 		ServerCommand("exec \"sourcemod/pug/%s\"\n",sFile);
 	}
 	
-	if(iRestart)
+	if(iRestart > 0)
 	{
 		SetConVarInt(g_hMpRestartGame,iRestart);
 	}

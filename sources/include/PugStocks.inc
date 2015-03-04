@@ -4,6 +4,7 @@
 #define _PugStocks_included
 
 #include <sourcemod>
+#include <PugConst>
 
 /**
  * @brief Called when a clients movement buttons are being processed
@@ -17,10 +18,10 @@ stock PugMessage(iClient,String:sLang[])
 {
 	if(!iClient)
 	{
-		PrintToServer("* %T",LANG_SERVER,sLang);
+		PrintToServer(PUG_MOD_PREFIX,sLang);
 	}
 	
-	PrintToChat(iClient,"%s %T",g_sHead,LANG_SERVER,sLang);
+	PrintToChat(iClient,PUG_MOD_PREFIX,sLang);
 	
 	return Plugin_Handled;
 }

@@ -10,19 +10,19 @@
  * @brief Call a Pug Warmup
  * 
  */
- native bool:PugWarmup();
+ native PugWarmup();
  
  /**
  * @brief Call a Pug Start
  * 
  */
- native bool:PugStart();
+ native PugStart();
  
  /**
  * @brief Call a Pug Match
  * 
  */
- native bool:PugMatch();
+ native PugMatch();
  
   /**
  * @brief Get a Pug Stage

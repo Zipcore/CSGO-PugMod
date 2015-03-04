@@ -52,6 +52,7 @@ public OnPluginStart()
 	g_hMpTeam2Name = FindConVar("mp_teamname_2");
 	
 	RegConsoleCmd(".status",CoreCommandStatus,"Show the PUG Status");
+	RegConsoleCmd(".score",CoreCommandScore,"Show the PUG Score");
 }
 
 public APLRes:AskPluginLoad2(Handle:MySelf, bool:bLate, String:sError[], iErrorMax)
@@ -105,7 +106,7 @@ public Action:CoreWarmup()
 		decl Action:hResult;
 		
 		Call_StartForward(g_hCoreWarmup);
-		Call_Finish(_:hResult);
+		Call_Finish(hResult);
 		
 		return hResult;
 	}
@@ -139,7 +140,7 @@ public Action:CoreStart()
 		decl Action:hResult;
 		
 		Call_StartForward(g_hCoreStart);
-		Call_Finish(_:hResult);
+		Call_Finish(hResult);
 		
 		return hResult;
 	}
@@ -164,7 +165,7 @@ public OnPugStart()
 
 public CoreNativeMatch(Handle:hPlugin,iParams)
 {
-	if(g_iStage == PUG_STAGE_WARMUP)
+	if(g_iStage == PUG_STAGE_START)
 	{
 		CoreMatch();
 		
@@ -176,14 +177,14 @@ public CoreNativeMatch(Handle:hPlugin,iParams)
 
 public Action:CoreMatch()
 {
-	if(g_iStage == PUG_STAGE_WARMUP)
+	if(g_iStage == PUG_STAGE_START)
 	{
-		g_iStage = PUG_STAGE_START;
+		g_iStage = PUG_STAGE_MATCH;
 		
 		decl Action:hResult;
 		
 		Call_StartForward(g_hCoreMatch);
-		Call_Finish(_:hResult);
+		Call_Finish(hResult);
 		
 		return hResult;
 	}
@@ -243,6 +244,87 @@ public Action:CoreCommandStatus(iClient,iArgs)
 	}
 	
 	return Plugin_Handled;
+}
+
+public Action:CoreCommandScore(iClient,iArgs)
+{
+	if(iClient && (g_iStage == PUG_STAGE_MATCH))
+	{
+		if(iClient)
+		{
+			PugScores(iClient);
+		}
+	}
+	else if(iClient)
+	{
+		PrintCenterText(iClient,"%t","You can't do that right now.");
+	}
+	
+	return Plugin_Handled;
+}
+
+public PugScores(iClient)
+{
+	if(g_iStage == PUG_STAGE_MATCH)
+	{
+		new String:sMessage[64];
+		new iWinner = PugGetWinner();
+		
+		if(iWinner != CS_TEAM_NONE)
+		{
+			Format
+			(
+				sMessage,
+				sizeof(sMessage),
+				PUG_MOD_PREFIX,
+				"Are Winning",
+				g_sTeams[iWinner],
+				CS_GetTeamScore(iWinner),
+				CS_GetTeamScore((iWinner == CS_TEAM_T) ? CS_TEAM_CT : CS_TEAM_T)
+			);
+		}
+		else
+		{
+			Format
+			(
+				sMessage,
+				sizeof(sMessage),
+				PUG_MOD_PREFIX,
+				"Scores are tied",
+				CS_GetTeamScore(CS_TEAM_T),
+				CS_GetTeamScore(CS_TEAM_CT)
+			);
+		}
+		
+		if(iClient)
+		{
+			PrintToChat(iClient,sMessage);
+		}
+		else
+		{
+			PrintToChatAll(sMessage);
+		}
+	}
+}
+
+public PugGetWinner()
+{
+	new iScoreTR = CS_GetTeamScore(CS_TEAM_T);
+	new iScoreCT = CS_GetTeamScore(CS_TEAM_CT);
+		
+	if(iScoreTR != iScoreCT)
+	{
+		if(iScoreTR > iScoreCT)
+		{
+			return CS_TEAM_T;
+		}
+		else if(iScoreTR < iScoreCT)
+		{
+			return CS_TEAM_CT;
+		}
+	}
+	
+	return CS_TEAM_NONE;
 }
 
 public CoreGetPugStage(Handle:hPlugin,iParams)

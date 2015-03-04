@@ -9,8 +9,8 @@
 	"Starting Match."
 	{
 		"#format"		"{1:s}"
-		"en" 			"Starting {1}."
-		"bp"			"Iniciando {1}."
+		"en" 			"Get Ready: {1} in the next restart! Good Luck & Have Fun!!"
+		"bp"			"Atencao: {1} no proximo restart! Good Luck & Have Fun!!"
 	}
 
 	"Pug Status Information."
@@ -25,5 +25,25 @@
 		"#format"		"{1:d},{2:s},{3:d},{4:s},{5:d}"
 		"en" 			"Round: {1} ({2} - {3}, {4} - {5})."
 		"bp" 			"Round: {1} ({2} - {3}, {4} - {5})."
+	}
+
+	"You can't do that right now."
+	{
+		"en"			"You can't do that right now."
+		"bp"			"Voce nao precisa usar esse comando agora."
+	}
+
+	"Are Winning"
+	{
+		"#format"		"{1:s},{2:d},{3:d}"
+		"en"			"The {1} are winning: {2}-{3}"
+		"bp"			"Os {1} estao vencendo: {2}-{3}"
+	}
+
+	"Scores are tied"
+	{
+		"#format"		"{1:d},{2:d}"
+		"en" 			"Scores are tied at: {1}-{2}"
+		"bp" 			"Placar empatado: {1}-{2}"
 	}
 }

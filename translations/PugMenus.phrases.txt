@@ -1,8 +1,27 @@
 "Phrases"
 {
-	"Say .ready to continue."
+	"Starting team vote."
 	{
-		"en"			"Say .ready to continue."
-		"bp"			"Say .ready para continuar."
+		"en"			"Starting team vote."
+		"bp"			"Iniciando escolha dos times."
+	}
+
+	"choosed"
+	{
+		"#format" 		"{1:s},{2:s}"
+		"en"			"{1} choosed {2}."
+		"bp"			"{1} escolheu {2}."
+	}
+
+	"Teams will be randomly sorted."
+	{
+		"en"			"Teams will be randomly sorted."
+		"bp"			"Os times serao misturados automaticamente."
+	}
+
+	"Teams will not be changed."
+	{
+		"en"			"Teams will not be changed."
+		"bp"			"Os times serao os mesmos."
 	}
 }

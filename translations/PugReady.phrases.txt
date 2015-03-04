@@ -44,4 +44,10 @@
 		"en" 			"Not Ready ({1} of {2}):\n{3}\n \nReady ({4} of {5}):\n{6}"
 		"bp"			"Aquecendo ({1} de {2}):\n{3}\n \nProntos ({4} de {5}):\n{6}"
 	}
+
+	"All Players are ready! Starting Pug Mod."
+	{
+		"en" 			"All Players are ready! Starting Pug Mod."
+		"bp"			"Todos estao prontos! Iniciando Pug Mod."
+	}
 }

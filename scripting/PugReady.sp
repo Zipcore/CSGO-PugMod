@@ -1,5 +1,4 @@
 #include <sourcemod>
-#include <sdktools>
 
 #include <PugConst>
 #include <PugForwards>
@@ -35,6 +34,29 @@ public OnConfigsExecuted()
 	g_hPlayersMin = FindConVar("pug_players_min");
 }
 
+public OnClientPostAdminCheck(iClient)
+{
+	CreateTimer(5.0,PugWelcomeMessage,iClient);
+}
+
+public Action:PugWelcomeMessage(Handle:hTimer,any:iClient)
+{
+	if(GetPugStage() == PUG_STAGE_WARMUP)
+	{
+		g_bReady[iClient] = false;
+		
+		if(IsClientInGame(iClient) && PugIsTeam(iClient))
+		{
+			PugPanelReadyList(iClient);
+			PrintToChatAll(PUG_MOD_PREFIX,"Say .ready to continue.");
+		}
+		else
+		{
+			CreateTimer(5.0,PugWelcomeMessage,iClient);
+		}
+	}
+}
+
 public Action:PugOnReadyUp(iClient,iArgs)
 {
 	if(iClient && PugIsTeam(iClient))
@@ -43,7 +65,7 @@ public Action:PugOnReadyUp(iClient,iArgs)
 		{
 			if(g_bReady[iClient])
 			{
-				PrintCenterText(iClient,"You are already ready!");
+				PrintCenterText(iClient,"%t","You are already ready!");
 			}
 			else
 			{
@@ -54,8 +76,8 @@ public Action:PugOnReadyUp(iClient,iArgs)
 				
 				PrintToChatAll
 				(
-					"%s %s is now ready.",
-					"[PugMod]",
+					PUG_MOD_PREFIX,
+					"is now ready!",
 					sName
 				);
 				
@@ -65,7 +87,7 @@ public Action:PugOnReadyUp(iClient,iArgs)
 		}
 		else
 		{
-			PrintCenterText(iClient,"You can't do that right now");
+			PrintCenterText(iClient,"%t","You can't do that right now.");
 		}
 	}
 	
@@ -80,7 +102,7 @@ public Action:PugOnReadyDown(iClient,iArgs)
 		{
 			if(!g_bReady[iClient])
 			{
-				PrintCenterText(iClient,"You were never ready!");
+				PrintCenterText(iClient,"%t","You were never ready!");
 			}
 			else
 			{
@@ -91,8 +113,8 @@ public Action:PugOnReadyDown(iClient,iArgs)
 				
 				PrintToChatAll
 				(
-					"%s %s is no longer ready.",
-					"[PugMod]",
+					PUG_MOD_PREFIX,
+					"is no longer ready!",
 					sName
 				);
 				
@@ -102,7 +124,7 @@ public Action:PugOnReadyDown(iClient,iArgs)
 		}
 		else
 		{
-			PrintCenterText(iClient,"You can't do that right now");
+			PrintCenterText(iClient,"%t","You can't do that right now.");
 		}
 	}
 	
@@ -133,7 +155,7 @@ public PugPanelReadyList(iClient)
 			}
 		}
 		
-		new String:sList[1024];
+		new String:sList[1536];
 		
 		new iPlayersMin = GetConVarInt(g_hPlayersMin);
 
@@ -141,7 +163,8 @@ public PugPanelReadyList(iClient)
 		(
 			sList,
 			sizeof(sList),
-			"Not Ready (%i of %i):\n%s\n \nReady (%i of %i):\n%s",
+			"%t",
+			"Ready List Panel",
 			GetPugPlayers() - PugGetReadyNum(),
 			iPlayersMin,
 			sUnReady,

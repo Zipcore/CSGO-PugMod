@@ -18,7 +18,7 @@ public Plugin:myinfo =
 	url 			= PUG_MOD_WEBURL
 };
 
-public PugStage:g_iStage = PUG_STAGE_DEAD;
+public PugStage:g_iStage;
 
 new Handle:g_hCoreWarmup;
 new Handle:g_hCoreStart;
@@ -48,10 +48,6 @@ public OnPluginStart()
 	//g_hPlayersMinDefault = CreateConVar("pug_players_min_default","10","Default maximum of players in server.");
 	//g_hPlayersMaxDefault = CreateConVar("pug_players_max_default","10","Default maximum of players in server.");
 	
-	g_hCoreWarmup 	= CreateGlobalForward("OnPugWarmup",ET_Event);
-	g_hCoreStart 	= CreateGlobalForward("OnPugStart",ET_Event);
-	g_hCoreMatch 	= CreateGlobalForward("OnPugMatch",ET_Event);
-	
 	g_hMpTeam1Name = FindConVar("mp_teamname_1");
 	g_hMpTeam2Name = FindConVar("mp_teamname_2");
 	
@@ -74,10 +70,18 @@ public APLRes:AskPluginLoad2(Handle:MySelf, bool:bLate, String:sError[], iErrorM
 
 public OnConfigsExecuted()
 {
-	if(g_iStage == PUG_STAGE_DEAD)
-	{
-		CoreWarmup();
-	}
+	g_iStage = PUG_STAGE_DEAD;
+	
+	g_hCoreWarmup 	= CreateGlobalForward("OnPugWarmup",ET_Event);
+	g_hCoreStart 	= CreateGlobalForward("OnPugStart",ET_Event);
+	g_hCoreMatch 	= CreateGlobalForward("OnPugMatch",ET_Event);
+	
+	CreateTimer(8.0,CoreMain);
+}
+
+public Action:CoreMain(Handle:hTimer)
+{
+	CoreWarmup();
 }
 
 public CoreNativeWarmup(Handle:hPlugin,iParams)

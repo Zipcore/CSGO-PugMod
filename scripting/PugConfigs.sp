@@ -1,5 +1,4 @@
 #include <sourcemod>
-#include <sdktools>
 
 #include <PugConst>
 #include <PugForwards>

@@ -1,0 +1,47 @@
+"Phrases"
+{
+	"Say .ready to continue."
+	{
+		"en"			"Say .ready to continue."
+		"bp"			"Say .ready para continuar."
+	}
+
+	"You are already ready!"
+	{
+		"en" 			"You are already ready!"
+		"bp"			"Voce ja esta pronto!"
+	}
+
+	"is now ready!"
+	{
+		"#format" 		"{1:s}"
+		"en" 			"{1} is now ready!"
+		"bp"			"{1} esta pronto!"
+	}
+
+	"You can't do that right now."
+	{
+		"en"			"You can't do that right now."
+		"bp"			"Voce nao precisa usar esse comando agora."
+	}
+
+	"You were never ready!"
+	{
+		"en"			"You were never ready!"
+		"bp"			"Voce ainda nao esta pronto!"
+	}
+
+	"is no longer ready!"
+	{
+		"#format" 		"{1:s}"
+		"en"			"{1} is no longer ready!"
+		"bp"			"{1} nao esta mais pronto!"
+	}
+
+	"Ready List Panel"
+	{
+		"#format" 		"{1:d},{2:d},{3:s},{4:d},{5:d},{6:s}"
+		"en" 			"Not Ready ({1} of {2}):\n{3}\n \nReady ({4} of {5}):\n{6}"
+		"bp"			"Aquecendo ({1} de {2}):\n{3}\n \nProntos ({4} de {5}):\n{6}"
+	}
+}

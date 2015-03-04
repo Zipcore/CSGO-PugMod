@@ -1,0 +1,272 @@
+"Phrases"
+{
+	"Yes"
+	{
+		"en"			"Yes"
+		"bp"			"Sim"
+	}
+	
+	"No"
+	{
+		"en"			"No"
+		"bp"			"Nao"
+	}
+
+	"No matching client"
+	{
+		"en"			"No matching client was found."
+		"bp"			"Nenhum player encontrado."
+	}
+	
+	"No matching clients"
+	{
+		"en"			"No matching clients were found."
+		"bp"			"Nenhum player encontrado."
+	}
+	
+	"More than one client matches"
+	{
+		"#format"		"{1:s}"
+		"en"			"More than one client matches the pattern \"{1}\""
+		"bp"			"Tem mais de um cliente com esses termos \"{1}\""
+	}
+	
+	"More than one client matched"
+	{
+		"en"			"More than one client matched the given pattern."
+		"bp"			"Mais de um cliente encontrado com esses termos."
+	}
+	
+	"player no longer available"
+	{
+		"en"			"The player you selected is no longer available."
+		"bp"			"O player escolhido nao esta mais disponivel."
+	}
+	
+	"Kick player"
+	{
+		"en"			"Kick player"
+		"bp"			"Kickar player"
+	}
+	
+	"Kicked by admin"
+	{
+		"en"			"Kicked by administrator"
+		"bp"			"Kickado pelo administrador"
+	}
+	
+	"Changing map"
+	{
+		"#format"		"{1:s}"
+		"en"			"Changing map to {1}..."
+		"bp"			"Trocando mapa para {1}..."
+	}
+	
+	"Map was not found"
+	{
+		"#format"		"{1:s}"
+		"en"			"Map {1} was not found."
+		"bp"			"Mapa {1} nao encontrado."
+	}
+	
+	"Unable to target"
+	{
+		"en"			"You cannot target this player."
+		"bp"			"Voce nao pode atingir esse jogador."
+	}
+	
+	"Name"
+	{
+		"en"			"Name"
+		"bp"			"Nome"
+	}
+	
+	"Access"
+	{
+		"en"			"Access"
+		"bp"			"Acesso"
+	}
+	
+	"See console for output"
+	{
+		"en"			"See console for output."
+		"bp"			"Veja o console."
+	}
+	
+	"Cannot target bot"
+	{
+		"en"			"Unable to perform this command on a bot."
+		"bp"			"Impossivel executar acao com um bot."
+	}
+	
+	"Unable to find cvar"
+	{
+		"#format"		"{1:s}"
+		"en"			"Unable to find cvar: {1}"
+		"bp"			"Cvar nao encontrada: {1}"
+	}
+	
+	"No access to cvar"
+	{
+		"en"			"You do not have access to this cvar."
+		"bp"			"Voce nao tem acesso a essa cvar."
+	}
+	
+	"Value of cvar"
+	{
+		"#format"		"{1:s},{2:s}"
+		"en"			"Value of cvar \"{1}\": \"{2}\""
+		"bp"			"Valor da cvar \"{1}\": \"{2}\""
+	}
+	
+	"Cvar changed"
+	{
+		"#format"		"{1:s},{2:s}"
+		"en"			"Changed cvar \"{1}\" to \"{2}\"."
+		"bp"			"Mudou a cvar \"{1}\" para \"{2}\"."
+	}
+	
+	"Config not found"
+	{
+		"#format"		"{1:s}"
+		"en"			"Config file \"{1}\" not found."
+		"bp"			"Config \"{1}\" nao encontrada."
+	}
+	
+	"Executed config"
+	{
+		"#format"		"{1:s}"
+		"en"			"Executed config \"{1}\"."
+		"en"			"config \"{1}\" executada."
+	}
+	
+	"Admin cache refreshed"
+	{
+		"en"			"Admin cache has been refreshed."
+		"bp"			"O cache de Admin foi atualizado."
+	}	
+	
+	"Invalid Amount"
+	{
+		"en"			"Invalid amount specified"
+		"bp"			"Quantidade especificada invalida"
+	}
+
+	"Cannot be performed on dead"
+	{
+		"#format"		"{1:s}"
+		"en"			"This action cannot be performed on dead client \"{1}\""
+		"bp"			"Essa acao nao pode ser executada em um cliente morto \"{1}\""
+	}
+	
+	"player has since died"
+	{
+		"en"			"Action cannot be performed, the player has since died."
+	}
+	
+	"Vote in Progress"
+	{
+		"en"			"A vote is already in progress."
+		"bp"			"Ja existe uma votacao em progresso."
+	}
+	
+	"Vote Not In Progress"
+	{
+		"en"			"A vote is not in progress at this time."
+	}
+	
+	"Cancelled Vote"
+	{
+		"en"			"Cancelled the vote."
+	}
+
+	"Cancel vote"
+	{
+		"en"			"Cancel vote"
+	}
+	
+	"Vote Select"
+	{
+		"#format"		"{1:s},{2:s}"
+		"en"			"{1} has chosen {2}."
+	}	
+	
+	"No Votes Cast"
+	{
+		"en"			"No votes were cast."
+	}	
+	
+	"Vote Delay Minutes"
+	{
+		"#format"		"{1:d}"
+		"en"			"You must wait {1} minutes before starting another vote."
+	}
+	
+	"Vote Delay Seconds"
+	{
+		"#format"		"{1:d}"
+		"en"			"You must wait {1} seconds before starting another vote."
+	}
+
+	"Could not connect to database"
+	{
+		"en"			"Could not connect to the database."
+	}
+
+	"Failed to query database"
+	{
+		"en"			"Failed to query database."
+	}
+
+	"Invalid SteamID specified"
+	{
+		"en"			"You have specified an invalid Steam ID (must start with 'STEAM_')."
+	}
+	
+	"Reload admins"
+	{
+		"en"			"Reload admins"
+	}
+
+	"Command is in-game only"
+	{
+		"en"			"This command can only be used in-game."
+	}
+	
+	"Target must be dead"
+	{
+		"en"			"This command can only be used on dead players."
+	}
+	
+	"Target must be alive"
+	{
+		"en"			"This command can only be used on alive players."
+	}
+	
+	"Target is not in game"
+	{
+		"en"			"The given player is not fully in-game yet."
+	}
+	
+	"Cannot participate in vote"
+	{
+		"en"			"You cannot participate in this vote."
+		"bp"			"Voce nao pode participar dessa votacao."
+	}
+	
+	"Cannot change vote"
+	{
+		"en"			"You cannot change your selection for this vote."
+		"bp"			"Voce nao pode mudar o seu voto."
+	}
+	"On"
+	{
+		"en"			"On"
+		"bp"			"On"
+	}
+	"Off"
+	{
+		"en"			"Off"
+		"bp"			"Off"
+	}
+}

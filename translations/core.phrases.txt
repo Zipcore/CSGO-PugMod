@@ -1,0 +1,108 @@
+"Phrases"
+{
+	"No Access"
+	{
+		"en"			"You do not have access to this command"
+		"bp"			"Voce nao tem acesso a esse comando."
+	}
+	
+	"Back"
+	{
+		"en"			"Back"
+		"bp"			"Voltar"
+	}
+	
+	"Next"
+	{
+		"en"			"Next"
+		"bp"			"Proximo"
+	}
+	
+	"Exit"
+	{
+		"en"			"Exit"
+		"bp"			"Sair"
+	}
+	
+	"Previous"
+	{
+		"en"			"Previous"
+		"bp"			"Anterior"
+	}
+	
+	"all players"
+	{
+		"en"			"all players"
+		"bp"			"todos os players"
+	}
+	
+	"all humans"
+	{
+		"en"			"all humans"
+		"bp"			"todos os humanos"
+	}
+	
+	"all bots"
+	{
+		"en"			"all bots"
+		"bp"			"todos os bots"
+	}
+	
+	"all dead players"
+	{
+		"en"			"all dead players"
+		"bp"			"todos os players mortos"
+	}
+	
+	"all alive players"
+	{
+		"en"			"all alive players"
+		"bp"			"todos os players vivos"
+	}
+
+	"all spectators"
+	{
+		"en"			"all spectators"
+		"bp"			"todos os espectadores"
+	}
+
+	"Vote Count"
+	{
+		"#format"		"{1:i},{2:i},{3:i}"
+		"en"			"Votes: {1}/{2}, {3}s left"
+		"bp"			"Votos: {1}/{2}, {3}s restantes"
+	}
+
+	"Voted For"
+	{
+		"#format"		"{1:s},{2:s}"
+		"en"			"{1} voted for {2}"
+		"bp"			"{1} votou {2}"	
+	}
+
+	"Changed Vote"
+	{
+		"#format"		"{1:s},{2:s}"
+		"en"			"{1} changed their vote to {2}"
+		"bp"			"{1} trocou seu voto para {2}"
+	}
+
+	"No Vote"
+	{
+		"en"			"No Vote"
+		"bp"			"Nehum voto"
+	}
+	
+	"Name Reserved"
+	{
+		"en"			"Your name is reserved by SourceMod; set your password to use it."
+		"bp"			"Nome reservado pelo SourceMod; Ajuste sua senha para usa-lo."
+	}
+
+	"_s"
+	{
+		"#format"		"{1:s}"
+		"en"			"{1}"
+		"bp"			"{1}"
+	}
+}

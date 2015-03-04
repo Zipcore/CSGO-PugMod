@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"Say .ready to continue."
+	{
+		"en"			"Say .ready to continue."
+		"bp"			"Say .ready para continuar."
+	}
+}

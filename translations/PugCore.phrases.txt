@@ -1,0 +1,29 @@
+"Phrases"
+{
+	"Starting Pug Mod."
+	{
+		"en"			"Starting Pug Mod."
+		"bp"			"Iniciando Pug Mod."
+	}
+
+	"Starting Match."
+	{
+		"#format"		"{1:s}"
+		"en" 			"Starting {1}."
+		"bp"			"Iniciando {1}."
+	}
+
+	"Pug Status Information."
+	{
+		"#format"		"{1:d},{2:d},{3:d},{4:s}"
+		"en" 			"Players: {1} (Min {2}, Max {3}) (Status {4})."
+		"bp" 			"Jogadores: {1} (Min {2}, Max {3}) (Status {4})."
+	}
+
+	"Pug Scores Information."
+	{
+		"#format"		"{1:d},{2:s},{3:d},{4:s},{5:d}"
+		"en" 			"Round: {1} ({2} - {3}, {4} - {5})."
+		"bp" 			"Round: {1} ({2} - {3}, {4} - {5})."
+	}
+}
